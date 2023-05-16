@@ -13,8 +13,8 @@ export const BuscarPage = () => {
                     <SearchCiudad> <CgShapeCircle /> Ciudad Inicio</SearchCiudad>
                     <SearchCiudad> <CgShapeCircle /> Ciudad Destino</SearchCiudad>
                     <SearchFecha> <Elemento><BsCalendar3 size={15}/></Elemento> Hoy</SearchFecha>
-                    <SearchCantidadPasajeros><CiUser /> 1</SearchCantidadPasajeros>
-                    <SearchButton>Buscar</SearchButton>
+                    <SearchCantidadPasajeros> <CiUser /> 1</SearchCantidadPasajeros>
+                    <SearchButton to="/viajesDisponibles">Buscar</SearchButton>
                 </SearchElement>
             </SearchContainer>
         </Fragment>

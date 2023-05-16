@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const SearchContainer = styled.div`
@@ -25,7 +26,7 @@ export const SearchElement = styled.div`
     
 `;
 
-export const SearchButton = styled.div`
+export const SearchButton = styled(Link)`
     display: flex;
     background-color: #1DC0D1;
     width: 20%;
@@ -35,6 +36,7 @@ export const SearchButton = styled.div`
     font-family: 'Kanit';
     font-size: 30px;
     color: white;
+    text-decoration: none;
     @media screen and (max-width:960px ) {
         width: 100%;
         height: 20%;

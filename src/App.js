@@ -25,12 +25,16 @@ const App = () => {
                         <Fragment>
                             <ContainerPrincipal>
                                 <Contenido />
-                                <h1>Viajes Disponibles: </h1>
-                                <Viajeslist />
                             </ContainerPrincipal>
                             <Footer />
                         </Fragment>
                     } />
+                    <Route path="/viajesDisponibles" element={
+                        <ContainerPrincipal>
+                            <h1>Viajes Disponibles: </h1>
+                            <Viajeslist />
+                        </ContainerPrincipal>
+                    }></Route>
 
                 </Routes>
             </BrowserRouter>
