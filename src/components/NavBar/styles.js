@@ -32,7 +32,6 @@ export const IconLogo = styled(Link)`
   justify-content: flex-start;
   align-items: center;
   @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
-
   font-family: 'Kanit';
   font-size: 1.5rem;
   color: #1DC0D1;
@@ -120,7 +119,7 @@ export const FloatingDiv = styled.div`
   border-radius: 15px; 
   z-index: 9999; 
   display: ${({ show }) => (show ? 'block' : 'none')};
-  transition: 0.2s ease-in;
+  transition: 0.3s ease-in;
 /*   box-shadow: 0 10px 14px rgba(0, 0, 0, 0.2);
  */
   box-shadow: rgba(0, 0, 0, 0.3) 0px 36px 36px 0px;
@@ -136,7 +135,7 @@ export const Boton = styled(Link)`
   &:hover{
     /* background-color: antiquewhite;
     border-bottom: 0.3rem solid #1DC0D1; */
-    transition: 0.2s ease-in;
+    transition: 0.3s ease-in;
     cursor: pointer;
     background-color: #EFEFEF;
     border-radius: 10px;

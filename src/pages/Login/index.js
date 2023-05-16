@@ -1,11 +1,17 @@
 import React, { Fragment } from 'react'
-import { LinkARegistrar, LoginContainer } from './style'
+import { BotonInicio, HorizontalLine, LinkARegistrar, LoginContainer } from './style'
+import { FaFacebook } from "react-icons/fa";
+import { SlArrowRight } from "react-icons/sl";
 
-export const Login = () =>{
-    return(
-        <LoginContainer>
-            <h1>¿Cómo quieres iniciar sesión?</h1>
-            <p>¿No tienes cuenta? <LinkARegistrar to="/register"> Registrarse </LinkARegistrar> </p>
-        </LoginContainer>
+export const Login = ()=>{
+    return (
+        <Fragment>
+            <LoginContainer>
+                <h1> Ahorra viajando con nosotros </h1>
+                <BotonInicio>Inicia Sesión con Facebook <div><FaFacebook color='#1D52E2' size={20}/> <SlArrowRight size={15}/></div></BotonInicio>
+                <BotonInicio>Inicia Sesión con email <SlArrowRight size={15}/></BotonInicio>
+                <p>¿No tienes una cuenta? <LinkARegistrar to="/register">Registrarte</LinkARegistrar> </p>
+            </LoginContainer>
+        </Fragment>
     )
 }

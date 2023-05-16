@@ -22,8 +22,6 @@ export const SearchElement = styled.div`
         width: 50%;
         height: 300px;
     }
-    
-    
 `;
 
 export const SearchButton = styled(Link)`
@@ -56,7 +54,6 @@ export const SearchCiudad = styled.div`
         width: 100%;
         height: 30%;
         border-bottom: 1px solid #E5E4E4;
-
     }
 `
 
@@ -81,11 +78,13 @@ export const SearchCantidadPasajeros = styled.div`
     font-family: 'Kanit';
     font-size: 20px;
     width: 10%;
+    :hover{
+        cursor: pointer;
+    }
     @media screen and (max-width:960px ) {
         width: 100%;
         height: 10%;
     }
-    
 `
 
 export const Elemento = styled.div`
@@ -94,3 +93,21 @@ export const Elemento = styled.div`
     justify-content: center;
     margin:10px;
 `;
+
+export const FloatingDivPasajeros = styled.div`
+  
+  position: fixed;
+  top: 230px;
+  left: 60%;
+  transform: translate(-50%, -50%);
+  background-color: #fff; 
+  width: 250px; 
+  height: 50px; 
+  border-radius: 15px; 
+  z-index: 9999; 
+  display: ${({ show }) => (show ? 'block' : 'none')};
+  transition: 0.5s ease-in;
+  padding: 10px;
+  box-shadow: rgba(0, 0, 0, 0.3) 0px 36px 36px 0px;
+  border: none;
+ `;

@@ -11,7 +11,7 @@ export const ConductorContainer = ({
 
     return (
         <Fragment>
-            <div>{ `Conductor: ${conductor?.username}`}</div> {/* Imagen y nombre */}
+            <div>{ `Maneja: ${conductor?.username}`}</div> {/* Imagen y nombre */}
             <PuntuacionContainer />
         </Fragment>
     )

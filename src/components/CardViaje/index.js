@@ -1,5 +1,5 @@
 import React, { Fragment } from "react";
-import { CardViajeContainer, Ciudad, HoraSalida, LugaresDisponibles } from "./style";
+import { BotonSumarseAViaje, CardViajeContainer, Ciudad, HoraSalida, LugaresDisponibles } from "./style";
 import { ConductorContainer } from "../ConductorContainer";
 import { CiudadesContainer } from "../CiudadContainer";
 
@@ -11,8 +11,7 @@ export const CardViaje = ({
     lugaresDisponibles,
     conductor,
     aceptaMascotas
-})=>{
-    
+})=>{    
     const viaje = {
         id:`${id}`,
         ciudadInicio:`${ ciudadInicio }`,
@@ -25,12 +24,11 @@ export const CardViaje = ({
 
     return (
         <CardViajeContainer>
-            <CiudadesContainer inicio={ciudadInicio} destino={ciudadDestino}></CiudadesContainer>
-            {/* <Ciudad>{ciudadInicio}</Ciudad>
-            <Ciudad>{ciudadDestino}</Ciudad> */}
+            <CiudadesContainer inicio={ciudadInicio} destino={ciudadDestino}></CiudadesContainer>            
             <HoraSalida>{`Hora de Salida: ${viaje?.horaSalida}`}</HoraSalida>
             <LugaresDisponibles>{`Lugares: ${viaje?.lugaresDisponibles}`}</LugaresDisponibles>
             <ConductorContainer datosConductor = {conductor}/>
+            <BotonSumarseAViaje>Quiero Sumarme</BotonSumarseAViaje>
         </CardViajeContainer>
     );
 }

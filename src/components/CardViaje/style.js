@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const HoraSalida = styled.p`
@@ -7,22 +8,18 @@ export const HoraSalida = styled.p`
 `;
 
 export const Ciudad = styled.h1`
-    height: 60px;
+    height: 65px;
     margin: 5px;  
     font-family: 'Pathway Gothic One', 'Kanit';
     font-size: 32px;
 `;
 
-export const Button = styled.button`
-
-`;
-
 export const LugaresDisponibles = styled.h1`
-    height: 40px;
+    height: 45px;
 `;
 
 export const CardViajeContainer = styled.div`
-    height: 430px;
+    height: 400px;
     width: 265px;
     margin-top: 10px;
     display: flex;
@@ -31,10 +28,24 @@ export const CardViajeContainer = styled.div`
     align-items: center;
     box-shadow: 0 10px 14px rgba(0, 0, 0, 0.2);
     border-radius: 10px;
-    padding: 10px;
     margin: 15px;
-    border: 1px solid white;
-    
     font-size: 18px;
 `;
 
+export const BotonSumarseAViaje = styled(Link)`
+    display: flex;
+    background-color: #1DC0D1;
+    width: 100%;
+    height: 20%;
+    align-items: center;
+    justify-content: center;
+    font-family: 'Kanit';
+    font-size: 25px;
+    color: white;    
+    border-radius: 0 0px 10px 10px;
+    text-decoration: none;
+
+    :hover{
+        background-color: #20B9B9;
+    }   
+`;

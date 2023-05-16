@@ -4,10 +4,10 @@ import styled from 'styled-components'
 export const ContenedorFooter = styled.div`
     background: #D9D8D9;
     padding-top: 20px;
-    margin-top:50px;
     color:#343434;
     font-family: 'Teko', sans-serif;
-    
+    @import url('https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap');
+    font-family: 'Kanit';
 `
 
 export const LinksContainer = styled.div`
@@ -28,8 +28,7 @@ export const DerechosContainer = styled.div`
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
-    margin: 3em;   
+    justify-content: center; 
 
 `
 
