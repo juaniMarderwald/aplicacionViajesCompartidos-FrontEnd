@@ -20,6 +20,8 @@ export const FormInput = styled.input`
 export const StyledForm = styled.form`
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   width: 30%;
   margin: 0 auto;
 `;
@@ -45,11 +47,15 @@ export const StyledLabel = styled.label`
 export const StyledButton = styled.button`
   background-color: #1DC0D1;
   color: white;
-  font-size: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: 'Kanit';
+  font-size: 25px;
   padding: 10px;
   margin: 20px;
   border-radius:10px;
   cursor: pointer;
   border: none;
-  width: 30%;
+  width: 40%;
 `;

@@ -35,5 +35,12 @@ module.exports = {
       }
     ]
   },
-  plugins: [htmlPlugin]
+  plugins: [htmlPlugin],
+  output: {
+    publicPath: '/',
+  },
+  devServer: {
+    historyApiFallback: true,
+    hot: true
+  },
 }
