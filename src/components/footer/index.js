@@ -26,7 +26,7 @@ export const Footer = () => {
       
       </InfoContainer>
       <DerechosContainer>
-        <h3>Copyright 2022 | Todos los derechos reservados CARAVAN </h3>
+        <h3>Copyright 2023 | Todos los derechos reservados CARAVAN </h3>
         <h4>CARAVAN. Calle Falsa 123, Springfield | Buenos Aires | Argentina</h4>
       </DerechosContainer>
     </ContenedorFooter>
