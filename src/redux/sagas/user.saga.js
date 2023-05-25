@@ -12,8 +12,7 @@ const loginService = new LoginService();
 
 function* loginUser({ type, payload: credentials }) {
   try {
-    const user = yield call(loginService.login(credentials));
-    console.log({user});
+    const user = yield call(loginService.login, credentials);
     yield put(userLoginSuccess(user));
   } catch (error) {
     yield put(errorFetchingUser());

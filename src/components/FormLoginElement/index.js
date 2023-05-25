@@ -4,21 +4,20 @@ import { useDispatch } from "react-redux";
 import { userLogin } from "../../redux/slices/user.slice";
 
 export const FormLoginElement = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
+  const [formData, setFormData] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
 
-  const handleChangeEmail = (event) => {
-    setEmail(event.target.value);
-  };
-
-  const handleChangePassword = (event) => {
-    setPassword(event.target.value);
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
   };
 
   const handleSubmit = (event) => {
     event.preventDefault();
-    dispatch(userLogin({ email, password }));
+    dispatch(userLogin(formData));
   };
 
   return (
@@ -27,17 +26,17 @@ export const FormLoginElement = () => {
         type="email"
         id="email"
         name="email"
-        value={email}
-        onChange={handleChangeEmail}
+        value={formData.email}
+        onChange={handleChange}
         placeholder="Email"
       />
 
       <StyledInput
-        type="text"
+        type="password"
         id="password"
         name="password"
-        value={password}
-        onChange={handleChangePassword}
+        value={formData.password}
+        onChange={handleChange}
         placeholder="Password"
       />
 
