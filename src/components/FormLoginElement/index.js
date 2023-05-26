@@ -1,48 +1,46 @@
-import React, { useState } from 'react'
-import { StyledButton, StyledForm, StyledInput } from './styles'
+import React, { useState } from "react";
+import { StyledButton, StyledForm, StyledInput } from "./styles";
+import { useDispatch } from "react-redux";
+import { userLogin } from "../../redux/slices/auth.slice";
 
 export const FormLoginElement = () => {
+  const [formData, setFormData] = useState({ email: "", password: "" });
+  const dispatch = useDispatch();
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
+  const handleChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
 
-    const handleChangeEmail = (event) => {
-        setEmail(event.target.value);
-    };
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    dispatch(userLogin(formData));
+  };
 
-    const handleChangePassword = (event) => {
-        setPassword(event.target.value);
-    };
+  return (
+    <StyledForm onSubmit={handleSubmit}>
+      <StyledInput
+        type="email"
+        id="email"
+        name="email"
+        value={formData.email}
+        onChange={handleChange}
+        placeholder="Email"
+      />
 
-    const handleSubmit = (event) => {
-        event.preventDefault();
-        console.log(email,password);
-    };
+      <StyledInput
+        type="password"
+        id="password"
+        name="password"
+        value={formData.password}
+        onChange={handleChange}
+        placeholder="Password"
+      />
 
-    return (
-        <StyledForm onSubmit={handleSubmit}>
-            <StyledInput
-                type='email'
-                id='email'
-                name='email'
-                value={email}
-                onChange={handleChangeEmail}
-                placeholder='Email'
-            />
-
-            <StyledInput
-                type='text'
-                id='password'
-                name='password'
-                value={password}
-                onChange={handleChangePassword}
-                placeholder='Password'
-            />
-
-            <StyledButton>
-                Iniciar Sesión
-            </StyledButton>
-
-        </StyledForm>
-    )
-}
+      <StyledButton>Iniciar Sesión</StyledButton>
+    </StyledForm>
+  );
+};

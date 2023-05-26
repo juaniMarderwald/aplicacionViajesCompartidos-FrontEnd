@@ -1,10 +1,22 @@
-import React, { Fragment } from 'react';
-import { Ruteo } from './Router';
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { userToken } from "./redux/selectors/auth.selector";
+import { fetchUser } from "./redux/slices/user.slice";
+
+import { Ruteo } from "./Router";
 
 const App = () => {
-    return (
-            <Ruteo />
-    );
+  const dispatch = useDispatch();
+  const token = useSelector(userToken);
+
+  useEffect(() => {
+    if (token) {
+      dispatch(fetchUser(token));
+    }
+  }, [token]);
+
+  return <Ruteo />;
 };
 
 export default App;
