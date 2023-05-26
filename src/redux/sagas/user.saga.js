@@ -1,34 +1,18 @@
 import { call, put, takeLatest } from "redux-saga/effects";
-import { LoginService } from "../../services/loginService";
+import { fetchUser, getUser, errorFetchingUser } from "../slices/user.slice";
+import { UserService } from "../../services/userService";
 
-import {
-  userLogin,
-  userLoginSuccess,
-  userRegisterSuccess,
-  errorFetchingUser,
-} from "../slices/user.slice";
+const userService = new UserService();
 
-const loginService = new LoginService();
-
-function* loginUser({ type, payload: credentials }) {
+function* _getUser({ type, payload: token }) {
   try {
-    const user = yield call(loginService.login, credentials);
-    yield put(userLoginSuccess(user));
-  } catch (error) {
-    yield put(errorFetchingUser());
-  }
-}
-
-function* registerUser({ type, payload: credentials }) {
-  try {
-    const user = yield call(loginService.register);
-    yield put(userRegisterSuccess(user));
+    const user = yield call(userService.getUser, token);
+    yield put(getUser(user)); 
   } catch (error) {
     yield put(errorFetchingUser());
   }
 }
 
 export default function* userSaga() {
-  yield takeLatest(userLogin.type, loginUser);
-  yield takeLatest(userRegisterSuccess.type, registerUser);
+  yield takeLatest(fetchUser.type, _getUser);
 }

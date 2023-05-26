@@ -1,18 +1,22 @@
-import React from "react";
-import { Provider } from "react-redux";
-import { PersistGate } from "redux-persist/integration/react";
-import { persistor, store } from "./store/store";
+import React, { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+
+import { userToken } from "./redux/selectors/auth.selector";
+import { fetchUser } from "./redux/slices/user.slice";
 
 import { Ruteo } from "./Router";
 
 const App = () => {
-  return (
-    <Provider store={store}>
-      <PersistGate loading={null} persistor={persistor}>
-        <Ruteo />
-      </PersistGate>
-    </Provider>
-  );
+  const dispatch = useDispatch();
+  const token = useSelector(userToken);
+
+  useEffect(() => {
+    if (token) {
+      dispatch(fetchUser(token));
+    }
+  }, [token]);
+
+  return <Ruteo />;
 };
 
 export default App;

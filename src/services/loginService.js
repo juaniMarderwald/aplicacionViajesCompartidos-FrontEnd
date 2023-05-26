@@ -5,7 +5,7 @@ export class LoginService {
     try {
       // const response = await Axios.post(`/login`, { data: credentials });
       // return response.data;
-      return { ...credentials, token: "uloshjklas213q5niem" };
+      return { token: "22utlshjklas88213q5niem" };
     } catch (err) {
       console.error(err);
       return err;
@@ -22,3 +22,4 @@ export class LoginService {
     }
   }
 }
+

@@ -1,6 +1,4 @@
 import React, { Fragment, useState } from "react";
-import { useSelector } from "react-redux";
-import { selectUserEmail } from "../../redux/selectors/user.selector";
 import {
   Boton,
   FloatingDiv,
@@ -21,7 +19,6 @@ import { SlArrowRight, SlArrowDown, SlArrowUp } from "react-icons/sl";
 export const NavBar = () => {
   const [click, setClick] = useState(false);
   const [showFloatingDiv, setShowFloatingDiv] = useState(false);
-  const userEmail = useSelector(selectUserEmail);
 
   const toggleFloatingDiv = () => {
     setShowFloatingDiv(!showFloatingDiv);
@@ -69,7 +66,6 @@ export const NavBar = () => {
                 toggleFloatingDiv();
               }}
             >
-              {userEmail && <p>{userEmail}</p>}
               <MenuItemLink>
                 <FaRegUserCircle size={30} />{" "}
                 {showFloatingDiv ? (

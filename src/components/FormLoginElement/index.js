@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { StyledButton, StyledForm, StyledInput } from "./styles";
 import { useDispatch } from "react-redux";
-import { userLogin } from "../../redux/slices/user.slice";
+import { userLogin } from "../../redux/slices/auth.slice";
 
 export const FormLoginElement = () => {
   const [formData, setFormData] = useState({ email: "", password: "" });

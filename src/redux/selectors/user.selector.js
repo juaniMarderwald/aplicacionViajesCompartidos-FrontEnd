@@ -1,9 +1,7 @@
 import { createSelector } from "reselect";
 
-const selectUser = (state) => state.user;
-const fetchLoading = (state) => state.isLoading;
-const hasError = (state) => state.hasError;
+const userStore = (state) => state.user;
 
-export const selectUserEmail = createSelector(selectUser, (user) => user.email);
-export const userLoading = createSelector(fetchLoading, (user) => user.isLoading);
-export const userError = createSelector(hasError, (user) => user.error);
+export const selectUserEmail = createSelector(userStore, (user) => user.email);
+export const userLoading = createSelector(userStore, (user) => user.isLoading);
+export const userError = createSelector(userStore, (user) => user.error);
