@@ -1,9 +1,5 @@
 import React, { Fragment } from "react";
-import {
-  BotonInicio,
-  LinkARegistrar,
-  LoginContainer,
-} from "./style";
+import { BotonInicio, LinkARegistrar, LoginContainer } from "./style";
 import { FaFacebook } from "react-icons/fa";
 import { SlArrowRight } from "react-icons/sl";
 

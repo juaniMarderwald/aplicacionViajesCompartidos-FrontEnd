@@ -1,23 +1,21 @@
-import React, { useEffect } from "react";
-import { useDispatch, useSelector } from "react-redux";
+import React, { Suspense } from "react";
+import { ThemeProvider } from "styled-components";
+import { BrowserRouter } from "react-router-dom";
 
-import { userToken } from "./redux/selectors/auth.selector";
-import { fetchUser } from "./redux/slices/user.slice";
-
-// import { Ruteo } from "./router/Router";
+import { GlobalStyles, theme } from "./styles/GlobalStyles";
 import Navigation from "./router/Navigation";
 
 const App = () => {
-  const dispatch = useDispatch();
-  const token = useSelector(userToken);
-
-  useEffect(() => {
-    if (token) {
-      dispatch(fetchUser(token));
-    }
-  }, [token]);
-
-  return <Navigation />;
+  return (
+    <ThemeProvider theme={theme}>
+      <GlobalStyles />
+      <Suspense fallback={null}>
+        <BrowserRouter>
+          <Navigation />
+        </BrowserRouter>
+      </Suspense>
+    </ThemeProvider>
+  );
 };
 
 export default App;

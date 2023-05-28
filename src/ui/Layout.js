@@ -4,18 +4,16 @@ import { Footer } from "../components/footer";
 import { AppContainer } from "../AppStyle";
 
 const Layout = ({ children }) => {
+  // const ResponsiveComponent = useMemo(()=> isMobile ? Desktop: Mobile );
+
   return (
-    <div
-      style={{ display: "flex", flexDirection: "column", minHeight: "100vh" }}
-    >
-      <main>
-        <NavBar />
-        <AppContainer>
-          {children}
-          <Footer />
-        </AppContainer>
-      </main>
-    </div>
+    <main>
+      <NavBar />
+      <AppContainer>
+        {children}
+        <Footer />
+      </AppContainer>
+    </main>
   );
 };
 
