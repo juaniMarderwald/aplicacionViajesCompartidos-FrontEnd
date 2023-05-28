@@ -1,36 +1,42 @@
-import React, { Suspense } from "react";
-import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
-import { useSelector } from "react-redux";
+import React, { useEffect } from "react";
+import { Navigate, Route, Routes } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
 
 import Layout from "../ui/Layout";
 import { routes } from "./routes";
+import { userAuth, userToken } from "../redux/selectors/auth.selector";
+import { fetchUser } from "../redux/slices/user.slice";
 
 const Navigation = () => {
-  const isAuth = useSelector((state) => state.auth.isAuth);
+  const dispatch = useDispatch();
+  const token = useSelector(userToken);
+  const isAuth = useSelector(userAuth);
+
+  useEffect(() => {
+    if (token) {
+      dispatch(fetchUser(token));
+    }
+  }, [token]);
 
   return (
-    <Suspense fallback={null}>
-      <BrowserRouter>
-        <Layout>
-          <Routes>
-            {routes.map(({ path, element: Element, private: isPrivate }) => (
-              <Route
-                key={path}
-                path={path}
-                element={
-                  isPrivate && !isAuth ? (
-                    <Navigate to="/login" replace />
-                  ) : (
-                    <Element {...path} />
-                  )
-                }
-              />
-            ))}
-            <Route path="/*" element={<Navigate to="/register" replace />} />
-          </Routes>
-        </Layout>
-      </BrowserRouter>
-    </Suspense>
+    <Layout>
+      <Routes>
+        {routes.map(({ path, element: Element, private: isPrivate }) => (
+          <Route
+            key={path}
+            path={path}
+            element={
+              isPrivate && !isAuth ? (
+                <Navigate to="/login" />
+              ) : (
+                <Element {...path} />
+              )
+            }
+          />
+        ))}
+        <Route path="/*" element={<Navigate to="/register" replace />} />
+      </Routes>
+    </Layout>
   );
 };
 

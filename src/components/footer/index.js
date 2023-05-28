@@ -3,7 +3,6 @@ import {
   ContenedorFooter,
   DerechosContainer,
   InfoContainer,
-  Linea,
   LinksContainer,
   SocialContainer,
   LegalesContainer,

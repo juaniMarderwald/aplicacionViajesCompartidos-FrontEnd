@@ -1,9 +1,14 @@
-import React, { useState } from "react";
-import { StyledButton, StyledForm, StyledInput } from "./styles";
-import { useDispatch } from "react-redux";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useNavigate } from "react-router";
+
 import { userLogin } from "../../redux/slices/auth.slice";
+import { userAuth } from "../../redux/selectors/auth.selector";
+
+import { StyledButton, StyledForm, StyledInput } from "./styles";
 
 export const FormLoginElement = () => {
+  const isAuth = useSelector(userAuth);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
 
@@ -19,6 +24,12 @@ export const FormLoginElement = () => {
     event.preventDefault();
     dispatch(userLogin(formData));
   };
+
+  const navigate = useNavigate();
+  useEffect(() => {
+    console.log({ isAuth });
+    isAuth && navigate("/");
+  }, [isAuth]);
 
   return (
     <StyledForm onSubmit={handleSubmit}>
