@@ -1,16 +1,16 @@
 import React, { Fragment } from "react";
 import { BrowserRouter, Route, Routes, Router } from "react-router-dom";
-import { NavBar } from "./components/NavBar";
-import { Login } from "./pages/Login";
-import { Register } from "./pages/Register";
-import { BuscarPage } from "./pages/Buscar";
-import { PublicarViaje } from "./pages/PublicarViaje";
-import { LoginEmailPage } from "./pages/LoginEmail";
-import { RegisterEmailPage } from "./pages/RegisterEmail";
-import { ContainerPrincipal } from "./AppStyle";
-import { Contenido } from "./components/Contenido";
-import { Footer } from "./components/footer";
-import { Viajeslist } from "./components/ViajesList";
+import { NavBar } from "../components/NavBar";
+import { Login } from "../pages/Login";
+import { Register } from "../pages/Register";
+import { BuscarPage } from "../pages/Buscar";
+import { PublicarViaje } from "../pages/PublicarViaje";
+import { LoginEmailPage } from "../pages/LoginEmail";
+import { RegisterEmailPage } from "../pages/RegisterEmail";
+import { ContainerPrincipal } from "../AppStyle";
+import { Home } from "../components/Home";
+import { Footer } from "../components/footer";
+import { Viajeslist } from "../components/ViajesList";
 import { createBrowserHistory } from "history";
 const history = createBrowserHistory();
 
@@ -24,7 +24,7 @@ export const Ruteo = () => {
           element={
             <Fragment>
               <ContainerPrincipal>
-                <Contenido />
+                <Home />
               </ContainerPrincipal>
               <Footer />
             </Fragment>

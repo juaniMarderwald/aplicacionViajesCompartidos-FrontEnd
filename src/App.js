@@ -4,7 +4,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { userToken } from "./redux/selectors/auth.selector";
 import { fetchUser } from "./redux/slices/user.slice";
 
-import { Ruteo } from "./Router";
+// import { Ruteo } from "./router/Router";
+import Navigation from "./router/Navigation";
 
 const App = () => {
   const dispatch = useDispatch();
@@ -16,7 +17,7 @@ const App = () => {
     }
   }, [token]);
 
-  return <Ruteo />;
+  return <Navigation />;
 };
 
 export default App;
