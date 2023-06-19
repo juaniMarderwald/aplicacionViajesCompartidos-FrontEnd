@@ -1,5 +1,4 @@
 import React, { Fragment, useEffect, useState } from "react";
-import { Li, Ul } from "../NavBar/styles";
 import { CardViaje } from "../CardViaje";
 
 export function Viajeslist() {
@@ -23,21 +22,19 @@ export function Viajeslist() {
 
   return (
     <Fragment>
-      <Ul>
-        <p>Viajes List</p>
-        {listData?.map((viaje, index) => (
-          <CardViaje
-            key={index}
-            id={`${viaje?.id}`}
-            ciudadInicio={`${viaje?.ciudadInicio}`}
-            ciudadDestino={`${viaje?.ciudadDestino}`}
-            horaSalida={`${viaje?.horaSalida}`}
-            lugaresDisponibles={`${viaje?.lugaresDisponibles}`}
-            conductor={viaje?.conductor}
-            aceptaMascotas={`${viaje?.aceptaMascotas}`}
-          />
-        ))}
-      </Ul>
+      <p>Viajes List</p>
+      {listData?.map((viaje, index) => (
+        <CardViaje
+          key={index}
+          id={`${viaje?.id}`}
+          ciudadInicio={`${viaje?.ciudadInicio}`}
+          ciudadDestino={`${viaje?.ciudadDestino}`}
+          horaSalida={`${viaje?.horaSalida}`}
+          lugaresDisponibles={`${viaje?.lugaresDisponibles}`}
+          conductor={viaje?.conductor}
+          aceptaMascotas={`${viaje?.aceptaMascotas}`}
+        />
+      ))}
     </Fragment>
   );
 }

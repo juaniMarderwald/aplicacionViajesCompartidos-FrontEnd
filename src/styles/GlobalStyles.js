@@ -4,6 +4,7 @@ const theme = {
   primaryColor: "#1DC0D1",
   secondaryColor: "#1CA0C9",
   fontSize: "16px",
+  borderRadius: "4px",
 };
 
 /* How to use css-variables:

@@ -1,7 +1,6 @@
 import React, { Fragment, useState } from "react";
+import LoginMenu from "../login-menu/LoginMenu";
 import {
-  Boton,
-  FloatingDiv,
   IconLogo,
   IconLogoMobile,
   Menu,
@@ -12,17 +11,10 @@ import {
 } from "./styles";
 import { BsSearch } from "react-icons/bs";
 import { TbSquareRoundedPlus } from "react-icons/tb";
-// import { HiOutlineUser } from "react-icons/hi";
-import { FaBars, FaTimes, FaRegUserCircle } from "react-icons/fa";
-import { SlArrowRight, SlArrowDown, SlArrowUp } from "react-icons/sl";
+import { FaBars, FaTimes } from "react-icons/fa";
 
 export const NavBar = () => {
   const [click, setClick] = useState(false);
-  const [showFloatingDiv, setShowFloatingDiv] = useState(false);
-
-  const toggleFloatingDiv = () => {
-    setShowFloatingDiv(!showFloatingDiv);
-  };
 
   const changeClick = () => {
     setClick(!click);
@@ -33,7 +25,6 @@ export const NavBar = () => {
       <NavBarContainer>
         <NavBarWrapper>
           <IconLogo to="/">CARAVAN</IconLogo>
-
           <IconLogoMobile
             onClick={() => {
               changeClick();
@@ -41,7 +32,6 @@ export const NavBar = () => {
           >
             {click ? <FaTimes /> : <FaBars />}
           </IconLogoMobile>
-
           <Menu click={click}>
             <MenuItem
               onClick={() => {
@@ -61,43 +51,10 @@ export const NavBar = () => {
                 <TbSquareRoundedPlus /> Publicar un Viaje
               </MenuItemLink>
             </MenuItem>
-            <MenuItem
-              onClick={() => {
-                toggleFloatingDiv();
-              }}
-            >
-              <MenuItemLink>
-                <FaRegUserCircle size={30} />{" "}
-                {showFloatingDiv ? (
-                  <SlArrowUp size={15} />
-                ) : (
-                  <SlArrowDown size={15} />
-                )}
-              </MenuItemLink>
-              <FloatingDiv show={showFloatingDiv}>
-                <Boton to="/login">
-                  Iniciar Sesion <SlArrowRight size={15} />
-                </Boton>
-                <Boton to="/register">
-                  Registrarse <SlArrowRight size={15} />
-                </Boton>
-              </FloatingDiv>
-            </MenuItem>
+            <LoginMenu />
           </Menu>
         </NavBarWrapper>
       </NavBarContainer>
     </Fragment>
   );
 };
-
-{
-  /*  <Ul>
-                    <Li><StyledContainer>
-                        <LogoElement>CARAVAN</LogoElement>
-                    </StyledContainer>
-                    </Li>
-                    <Li>
-                        <NavBarSearchElement />
-                    </Li>
-                </Ul> */
-}
