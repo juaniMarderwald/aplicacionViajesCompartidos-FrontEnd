@@ -2,7 +2,6 @@ import { useEffect, useReducer } from "react";
 
 const useLocalStorage = (itemName, initialValue) => {
   const [state, dispatch] = useReducer(reducer, initialState(initialValue));
-
   const { item, error } = state;
 
   const onSuccess = (parsedItem) =>

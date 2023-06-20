@@ -6,14 +6,14 @@ export const FormInput = styled.input`
   background: #f9f9fa;
   color: var(--lightBlack);
   margin-bottom: 0.9rem;
-  border-radius: 4px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   outline: 0;
   border: 1px solid var(--white);
   font-size: 14px;
   transition: all 0.3s ease-out;
   :focus,
   :hover {
-    box-shadow: rgba(0, 0, 0, 0.3) 0px 36px 36px 0px;  
+    box-shadow: rgba(0, 0, 0, 0.3) 0px 36px 36px 0px;
   }
 `;
 
@@ -29,9 +29,9 @@ export const StyledForm = styled.form`
 export const StyledInput = styled.input`
   width: 100%;
   padding: 10px;
-  border-radius: 10px;
-  border: 1px solid #E5E4E4;
-  background-color: #E5E4E4;
+  border-radius: ${({ theme }) => theme.borderRadius};
+  border: 1px solid #e5e4e4;
+  background-color: #e5e4e4;
   margin: 10px;
   transition: all 0.3s ease-out;
   outline: 0;
@@ -41,21 +41,20 @@ export const StyledInput = styled.input`
 `;
 
 export const StyledLabel = styled.label`
-  font-size:15px;
+  font-size: 15px;
 `;
 
-export const StyledButton = styled.button`
-  background-color: #1DC0D1;
+export const Button = styled.button`
+  background-color: #1dc0d1;
   color: white;
   display: flex;
   align-items: center;
   justify-content: center;
-  font-family: 'Kanit';
-  font-size: 25px;
+  font-family: "Kanit";
+  font-size: ${({ theme }) => theme.fontSize};
   padding: 10px;
   margin: 20px;
-  border-radius:10px;
+  border-radius: ${({ theme }) => theme.borderRadius};
   cursor: pointer;
   border: none;
-  width: 40%;
 `;

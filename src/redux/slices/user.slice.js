@@ -21,7 +21,7 @@ export const userSlice = createSlice({
       state.isLoading = false;
     },
 
-    deleteUser(state, action) {
+    deleteUser(state) {
       state.userInfo = {};
       state.isLoading = false;
     },
@@ -32,7 +32,11 @@ export const userSlice = createSlice({
   },
 });
 
-export const { fetchUser, getUser, deleteUser, errorFetchingUser } =
-  userSlice.actions;
+export const {
+  fetchUser,
+  getUser,
+  deleteUser,
+  errorFetchingUser,
+} = userSlice.actions;
 
 export default userSlice.reducer;

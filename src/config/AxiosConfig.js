@@ -7,6 +7,6 @@ export const initAxios = () => {
     const { data } = response;
     return data;
   };
-  
+
   Axios.interceptors.response.use(responseHandler);
 };

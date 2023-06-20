@@ -7,7 +7,7 @@ const userService = new UserService();
 function* _getUser({ type, payload: token }) {
   try {
     const user = yield call(userService.getUser, token);
-    yield put(getUser(user)); 
+    yield put(getUser(user));
   } catch (error) {
     yield put(errorFetchingUser());
   }

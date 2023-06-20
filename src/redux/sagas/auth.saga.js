@@ -7,7 +7,6 @@ import {
   userRegister,
   userRegisterSuccess,
   getToken,
-  deleteToken,
   setToken,
   errorFetchingUser,
   error,
@@ -56,20 +55,10 @@ function* getTokenFromCookies() {
   }
 }
 
-function* removeToken() {
-  try {
-    Cookies.remove("token");
-    yield put(deleteToken(""));
-  } catch (err) {
-    yield put(errorShipingToken());
-  }
-}
-
 export default function* authSaga() {
   yield takeLatest(userLogin.type, _userLogin);
   yield takeLatest(userRegister.type, _registerUser);
 
   yield takeLatest(setToken.type, setTokenCoookie);
   yield takeLatest(getToken.type, getTokenFromCookies);
-  yield takeLatest(deleteToken.type, removeToken);
 }

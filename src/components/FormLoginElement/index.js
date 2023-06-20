@@ -3,12 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 import { userLogin } from "../../redux/slices/auth.slice";
-import { userAuth } from "../../redux/selectors/auth.selector";
+import { selectedIsAuth } from "../../redux/selectors/auth.selector";
 
-import { StyledButton, StyledForm, StyledInput } from "./styles";
+import { StyledForm } from "./styles";
+import { Button } from "../common-components/button/Button";
+import { MyInput } from "../common-components/input/Input";
 
 export const FormLoginElement = () => {
-  const isAuth = useSelector(userAuth);
+  const isAuth = useSelector(selectedIsAuth);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
 
@@ -25,15 +27,16 @@ export const FormLoginElement = () => {
     dispatch(userLogin(formData));
   };
 
+  // TODO: Mejorar
   const navigate = useNavigate();
+
   useEffect(() => {
-    console.log({ isAuth });
     isAuth && navigate("/");
   }, [isAuth]);
 
   return (
     <StyledForm onSubmit={handleSubmit}>
-      <StyledInput
+      <MyInput
         type="email"
         id="email"
         name="email"
@@ -42,7 +45,7 @@ export const FormLoginElement = () => {
         placeholder="Email"
       />
 
-      <StyledInput
+      <MyInput
         type="password"
         id="password"
         name="password"
@@ -51,7 +54,7 @@ export const FormLoginElement = () => {
         placeholder="Password"
       />
 
-      <StyledButton>Iniciar Sesión</StyledButton>
+      <Button>Iniciar Sesión</Button>
     </StyledForm>
   );
 };

@@ -1,46 +1,46 @@
-const HtmlWebpackPlugin = require('html-webpack-plugin');
+const HtmlWebpackPlugin = require("html-webpack-plugin");
 
 const htmlPlugin = new HtmlWebpackPlugin({
-  template: './src/index.html',
-  filename: './index.html'
-})
+  template: "./public/index.html",
+  filename: "./index.html",
+});
 
 module.exports = {
   module: {
     rules: [
       {
         test: /\.js$/,
-        exclude: '/node_modules/',
-        use: ['babel-loader']
+        exclude: "/node_modules/",
+        use: ["babel-loader"],
       },
       {
         test: /\.css?/,
-        use: ['style-loader', 'css-loader']
+        use: ["style-loader", "css-loader"],
       },
       {
         test: /\.(png|jpe?g|gif)$/i,
         use: [
           {
-            loader: 'file-loader',
+            loader: "file-loader",
             options: {
-              name: '[name].[ext]',
-              outputPath: 'images',
+              name: "[name].[ext]",
+              outputPath: "images",
             },
           },
         ],
       },
       {
         test: /\.svg$/,
-        use: ['svg-url-loader'],
-      }
-    ]
+        use: ["svg-url-loader"],
+      },
+    ],
   },
   plugins: [htmlPlugin],
   output: {
-    publicPath: '/',
+    publicPath: "/",
   },
   devServer: {
     historyApiFallback: true,
-    hot: true
+    hot: true,
   },
-}
+};
