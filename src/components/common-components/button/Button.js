@@ -2,7 +2,7 @@ import { Link } from "react-router-dom";
 import styled from "styled-components";
 
 export const Button = styled.button`
-  background-color: #1dc0d1;
+  background-color: ${({ theme }) => theme.primaryColor};
   color: white;
   display: flex;
   align-items: center;
@@ -22,10 +22,11 @@ export const MenuLinkButton = styled(Link)`
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
-  color: #313131;
+  color: ${({ theme }) => theme.fontColor};
+
   &:hover {
+    background-color: ${({ theme }) => theme.hoverColor};
     transition: 0.3s ease-in;
     cursor: pointer;
-    background-color: #efefef;
   }
 `;

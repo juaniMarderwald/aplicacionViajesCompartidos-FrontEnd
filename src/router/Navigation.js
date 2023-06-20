@@ -4,13 +4,16 @@ import { useDispatch, useSelector } from "react-redux";
 
 import Layout from "../ui/Layout";
 import { routes } from "./routes";
-import { userAuth, userToken } from "../redux/selectors/auth.selector";
+import {
+  selectedIsAuth,
+  selectedUserToken,
+} from "../redux/selectors/auth.selector";
 import { fetchUser } from "../redux/slices/user.slice";
 
 const Navigation = () => {
   const dispatch = useDispatch();
-  const token = useSelector(userToken);
-  const isAuth = useSelector(userAuth);
+  const token = useSelector(selectedUserToken);
+  const isAuth = useSelector(selectedIsAuth);
 
   useEffect(() => {
     if (token) {

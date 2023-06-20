@@ -7,6 +7,16 @@ export const selectedUserEmail = createSelector(
   (user) => user.userInfo.email
 );
 
+export const selectedUser = createSelector(userStore, (user) => {
+  const email = user?.userInfo?.email;
+  if (email) {
+    const username = email.split("@")[0];
+    return username;
+  } else {
+    return "";
+  }
+});
+
 export const selectedUserLoading = createSelector(
   userStore,
   (user) => user.isLoading

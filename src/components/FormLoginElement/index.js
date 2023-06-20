@@ -3,14 +3,14 @@ import { useDispatch, useSelector } from "react-redux";
 import { useNavigate } from "react-router";
 
 import { userLogin } from "../../redux/slices/auth.slice";
-import { userAuth } from "../../redux/selectors/auth.selector";
+import { selectedIsAuth } from "../../redux/selectors/auth.selector";
 
 import { StyledForm } from "./styles";
 import { Button } from "../common-components/button/Button";
 import { MyInput } from "../common-components/input/Input";
 
 export const FormLoginElement = () => {
-  const isAuth = useSelector(userAuth);
+  const isAuth = useSelector(selectedIsAuth);
   const [formData, setFormData] = useState({ email: "", password: "" });
   const dispatch = useDispatch();
 
@@ -29,6 +29,7 @@ export const FormLoginElement = () => {
 
   // TODO: Mejorar
   const navigate = useNavigate();
+
   useEffect(() => {
     isAuth && navigate("/");
   }, [isAuth]);

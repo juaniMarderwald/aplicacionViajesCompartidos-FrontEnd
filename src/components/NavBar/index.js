@@ -1,4 +1,4 @@
-import React, { Fragment, useState } from "react";
+import React, { useState } from "react";
 import LoginMenu from "../login-menu/LoginMenu";
 import {
   IconLogo,
@@ -7,7 +7,6 @@ import {
   MenuItem,
   MenuItemLink,
   NavBarContainer,
-  NavBarWrapper,
 } from "./styles";
 import { BsSearch } from "react-icons/bs";
 import { TbSquareRoundedPlus } from "react-icons/tb";
@@ -21,40 +20,25 @@ export const NavBar = () => {
   };
 
   return (
-    <Fragment>
-      <NavBarContainer>
-        <NavBarWrapper>
-          <IconLogo to="/">CARAVAN</IconLogo>
-          <IconLogoMobile
-            onClick={() => {
-              changeClick();
-            }}
-          >
-            {click ? <FaTimes /> : <FaBars />}
-          </IconLogoMobile>
-          <Menu click={click}>
-            <MenuItem
-              onClick={() => {
-                changeClick();
-              }}
-            >
-              <MenuItemLink to="/search-car-sharing">
-                <BsSearch size={20} /> Buscar
-              </MenuItemLink>
-            </MenuItem>
-            <MenuItem
-              onClick={() => {
-                changeClick();
-              }}
-            >
-              <MenuItemLink to="/offer-seats">
-                <TbSquareRoundedPlus /> Publicar un Viaje
-              </MenuItemLink>
-            </MenuItem>
-            <LoginMenu />
-          </Menu>
-        </NavBarWrapper>
-      </NavBarContainer>
-    </Fragment>
+    <NavBarContainer>
+      <IconLogo to="/">CARAVAN</IconLogo>
+      <IconLogoMobile onClick={changeClick}>
+        {click ? <FaTimes /> : <FaBars />}
+      </IconLogoMobile>
+      <Menu click={click}>
+        <MenuItemLink to="/search-car-sharing">
+          <MenuItem onClick={changeClick}>
+            <BsSearch size={16} />
+            <p>Buscar</p>
+          </MenuItem>
+        </MenuItemLink>
+        <MenuItemLink to="/offer-seats">
+          <MenuItem onClick={changeClick}>
+            <TbSquareRoundedPlus /> Publicar un Viaje
+          </MenuItem>
+        </MenuItemLink>
+        <LoginMenu />
+      </Menu>
+    </NavBarContainer>
   );
 };

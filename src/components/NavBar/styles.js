@@ -1,42 +1,34 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-export const NavBarContainer = styled.nav`
-  width: 100%;
-  height: 100%;
+export const NavBarContainer = styled.div`
+  max-width: 100%;
+  height: 8vh;
+  padding: 0.5em;
   position: sticky;
   top: 0;
   z-index: 99;
-  background-color: #faf8f8;
-`;
-
-export const NavBarWrapper = styled.div`
-  margin: auto;
-  max-width: 80%;
-  height: 100%;
-  align-items: center;
   display: flex;
-  flex-wrap: wrap;
+  align-items: center;
   justify-content: space-between;
+  background-color: ${({ theme }) => theme.background};
 `;
 
 export const IconLogo = styled(Link)`
   display: flex;
-  flex-wrap: wrap;
   justify-content: flex-start;
   align-items: center;
-  @import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300&display=swap");
-  font-family: "Kanit";
   font-size: 1.5rem;
-  color: #1dc0d1;
+  font-weight: 700;
+  color: ${({ theme }) => theme.primaryColor};
   text-decoration: none;
 `;
 
-export const Menu = styled.ul`
-  height: 100%;
+export const Menu = styled.div`
   display: flex;
-  justify-content: center;
+  justify-content: space-evenly;
   align-items: center;
+  margin: 10px;
 
   @media screen and (max-width: 760px) {
     width: 100%;
@@ -46,19 +38,23 @@ export const Menu = styled.ul`
     left: ${({ click }) => (click ? 0 : "-120%")};
     flex-direction: column;
     transition: 0.5s all ease-in;
-    background-color: #faf8f8;
+    background-color: ${({ theme }) => theme.background};
   }
 `;
 
-export const MenuItem = styled.li`
-  height: 100%;
-  padding: 0rem 1.5rem;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  font-size: 1.5rem;
-  font-family: "Kanit";
+export const MenuItemLink = styled(Link)`
+  color: ${({ theme }) => theme.primaryColor};
+  font-size: ${({ theme }) => theme.fontSizeTitle};
+  text-decoration: none;
   font-weight: 400;
+`;
+
+export const MenuItem = styled.div`
+  gap: 5px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0rem 1.5rem;
 
   &:hover {
     transition: 0.2s ease-in;
@@ -69,14 +65,6 @@ export const MenuItem = styled.li`
     width: 100%;
     height: 70px;
   }
-`;
-
-export const MenuItemLink = styled(Link)`
-  text-decoration: none;
-  color: #1dc0d1;
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
 `;
 
 export const Ul = styled.ul`
@@ -104,10 +92,10 @@ export const Boton = styled(Link)`
   align-items: center;
   justify-content: space-between;
   text-decoration: none;
-  color: #313131;
+  color: ${({ theme }) => theme.fontColor};
   &:hover {
     transition: 0.3s ease-in;
     cursor: pointer;
-    background-color: #efefef;
+    background-color: ${({ theme }) => theme.background};
   }
 `;

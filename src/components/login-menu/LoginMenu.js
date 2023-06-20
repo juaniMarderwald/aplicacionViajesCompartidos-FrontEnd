@@ -1,18 +1,19 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSelector } from "react-redux";
-import { MenuLinkButton } from "../common-components/button/Button";
-import { FloatingDiv, Menu, MenuItem, MenuItemLink } from "./styles";
+import { selectedUser } from "../../redux/selectors/user.selector";
+import { selectedIsAuth } from "../../redux/selectors/auth.selector";
+
+import { LoginMenuOptions } from "./LoginMenuOptions";
+import { FloatingDiv, ToLoginItem, MenuItemLink } from "./styles";
+
 import { SlArrowDown, SlArrowUp } from "react-icons/sl";
 import { FaRegUserCircle } from "react-icons/fa";
-import { selectedUserEmail } from "../../redux/selectors/user.selector";
-
-// import { HiOutlineUser } from "react-icons/hi";
+import { HiOutlineUser } from "react-icons/hi";
 
 function LoginMenu() {
-  const userEmail = useSelector(selectedUserEmail);
-
-  const [click, setClick] = useState(false);
   const [showFloatingDiv, setShowFloatingDiv] = useState(false);
+  const isAuth = useSelector(selectedIsAuth);
+  const userEmail = useSelector(selectedUser);
   const floatingDivRef = useRef(null);
 
   const toggleFloatingDiv = () => {
@@ -34,30 +35,29 @@ function LoginMenu() {
     };
   }, []);
 
+  const userIcon = isAuth ? (
+    <FaRegUserCircle size={16} />
+  ) : (
+    <HiOutlineUser size={16} />
+  );
+
   return (
-    <Menu click={click}>
-      <MenuItem
-        onClick={() => {
-          toggleFloatingDiv();
-        }}
-      >
-        <MenuItemLink>
-          <FaRegUserCircle size={30} />
+    <div ref={floatingDivRef}>
+      <ToLoginItem>
+        <MenuItemLink onClick={toggleFloatingDiv}>
+          {userIcon}
           {userEmail}
           {showFloatingDiv ? (
-            <SlArrowUp size={15} />
+            <SlArrowDown size={13} />
           ) : (
-            <SlArrowDown size={15} />
+            <SlArrowUp size={13} />
           )}
         </MenuItemLink>
-        <div ref={floatingDivRef}>
-          <FloatingDiv show={showFloatingDiv}>
-            <MenuLinkButton to="/login">Iniciar Sesion</MenuLinkButton>
-            <MenuLinkButton to="/register">Registrarse</MenuLinkButton>
-          </FloatingDiv>
-        </div>
-      </MenuItem>
-    </Menu>
+      </ToLoginItem>
+      <FloatingDiv show={showFloatingDiv} onClick={toggleFloatingDiv}>
+        <LoginMenuOptions isAuth={isAuth} />
+      </FloatingDiv>
+    </div>
   );
 }
 
