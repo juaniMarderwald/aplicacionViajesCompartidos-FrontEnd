@@ -39,6 +39,16 @@ export const MenuItemLink = styled(Link)`
   font-weight: 400;
 `;
 
+export const MenuItemLinkMobile = styled(Link)`
+  color: ${({ theme }) => theme.primaryColor};
+  font-size: ${({ theme }) => theme.fontSizeTitle};
+  text-decoration: none;
+  font-weight: 400;
+
+  @media screen and (max-width: 760px) {
+  }
+`;
+
 export const FloatingDiv = styled.div`
   display: ${({ show }) => (show ? "block" : "none")};
   position: fixed;

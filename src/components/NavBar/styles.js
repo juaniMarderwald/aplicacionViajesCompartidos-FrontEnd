@@ -32,12 +32,16 @@ export const Menu = styled.div`
 
   @media screen and (max-width: 760px) {
     width: 100%;
-    height: 98vh;
-    position: absolute;
-    top: 10px;
-    left: ${({ click }) => (click ? 0 : "-120%")};
+    display: flex;
+    height: 100vh;
     flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-start;
+    position: absolute;
+    top: 0;
+    margin: 0px;
     transition: 0.5s all ease-in;
+    left: ${({ click }) => (click ? 0 : "-120%")};
     background-color: ${({ theme }) => theme.background};
   }
 `;
@@ -47,6 +51,9 @@ export const MenuItemLink = styled(Link)`
   font-size: ${({ theme }) => theme.fontSizeTitle};
   text-decoration: none;
   font-weight: 400;
+
+  @media screen and (max-width: 760px) {
+  }
 `;
 
 export const MenuItem = styled.div`
@@ -83,6 +90,18 @@ export const IconLogoMobile = styled.div`
     display: flex;
     color: #1dc0d1;
     font-size: 1.5rem;
+  }
+`;
+
+export const MenuNavbarMobileIcon = styled.div`
+  display: none;
+
+  @media screen and (max-width: 760px) {
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    color: #1dc0d1;
+    font-size: 2.5rem;
   }
 `;
 
