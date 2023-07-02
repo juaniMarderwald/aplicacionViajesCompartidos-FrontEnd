@@ -6,26 +6,32 @@ import { useDispatch, useSelector } from "react-redux";
 import { selectedIsAuth } from "../../redux/selectors/auth.selector";
 import { FaRegUserCircle } from "react-icons/fa";
 import { MenuItemLinkMobile } from "./styles";
+import { MenuItem } from "../navBar/styles";
 
-export const LoginMenuMobile = () => {
+export const LoginMenuMobile = ({ onClick }) => {
   const dispatch = useDispatch();
   const isAuth = useSelector(selectedIsAuth);
   const endSession = (event) => {
     event.preventDefault();
     dispatch(deleteToken());
     dispatch(deleteUser());
+    onClick();
   };
   return (
     <>
       {isAuth ? (
-        <MenuItemLinkMobile to="/" onClick={endSession}>
-          <FaRegUserCircle size={16} />
-          Cerrar sesión
+        <MenuItemLinkMobile onClick={endSession}>
+          <MenuItem to="/">
+            <FaRegUserCircle size={16} />
+            <p>Cerrar sesión</p>
+          </MenuItem>
         </MenuItemLinkMobile>
       ) : (
-        <MenuItemLinkMobile to="/login">
-          <HiOutlineUser size={16} />
-          Ingresar
+        <MenuItemLinkMobile onClick={onClick}>
+          <MenuItem to="/login">
+            <HiOutlineUser size={16} />
+            <p>Ingresar</p>
+          </MenuItem>
         </MenuItemLinkMobile>
       )}
     </>

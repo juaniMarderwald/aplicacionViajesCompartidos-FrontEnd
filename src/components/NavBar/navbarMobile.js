@@ -21,12 +21,11 @@ const NavbarMobile = ({ click, onClick }) => {
         </MenuItemLink>
         <MenuItemLink to="/offer-seats">
           <MenuItem onClick={onClick}>
-            <TbSquareRoundedPlus /> Publicar un Viaje
+            <TbSquareRoundedPlus />
+            <p>Publicar un Viaje</p>
           </MenuItem>
         </MenuItemLink>
-        <MenuItem onClick={onClick}>
-          <LoginMenuMobile />
-        </MenuItem>
+        <LoginMenuMobile onClick={onClick} />
       </Menu>
     </>
   );
