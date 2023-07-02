@@ -2,7 +2,7 @@ import React from "react";
 import { useDispatch } from "react-redux";
 import { deleteToken } from "../../redux/slices/auth.slice";
 import { deleteUser } from "../../redux/slices/user.slice";
-import { MenuLinkButton } from "../common-components/button/Button";
+import { MenuLinkButton } from "../../components/common-components/button/Button";
 
 export const LoginMenuOptions = ({ isAuth }) => {
   const dispatch = useDispatch();
